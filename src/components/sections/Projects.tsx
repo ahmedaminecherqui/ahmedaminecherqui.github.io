@@ -8,44 +8,48 @@ import type { ProjectEntry } from '../../types';
 /* ─── Filter config ─────────────────────────────────────────── */
 
 interface Filter {
-  id:    string;
+  id: string;
   label: string;
   match: (p: ProjectEntry) => boolean;
 }
 
 const FILTERS: Filter[] = [
-  { id: 'all',          label: 'All Projects',  match: ()  => true                            },
-  { id: 'professional', label: 'Professional',  match: (p) => p.type === 'professional'       },
-  { id: 'academic',     label: 'Academic',      match: (p) => p.type === 'academic'           },
-  { id: 'ai',           label: 'AI',            match: (p) => p.tags.includes('ai')           },
-  { id: 'bi',           label: 'BI',            match: (p) => p.tags.includes('bi')           },
-  { id: 'data',         label: 'Data',          match: (p) => p.tags.includes('data')         },
-  { id: 'rpa',          label: 'RPA',           match: (p) => p.tags.includes('rpa')          },
+  { id: 'all', label: 'All Projects', match: () => true },
+  { id: 'professional', label: 'Professional', match: (p) => p.type === 'professional' },
+  { id: 'academic', label: 'Academic', match: (p) => p.type === 'academic' },
+  { id: 'ai', label: 'AI', match: (p) => p.tags.includes('ai') },
+  { id: 'bi', label: 'BI', match: (p) => p.tags.includes('bi') },
+  { id: 'data', label: 'Data', match: (p) => p.tags.includes('data') },
+  { id: 'rpa', label: 'RPA', match: (p) => p.tags.includes('rpa') },
 ];
 
 /* ─── Category badge config ─────────────────────────────────── */
 
 const categoryMeta: Record<string, { label: string; color: string }> = {
-  ai:       { label: 'Artificial Intelligence', color: 'var(--purple)'  },
-  bi:       { label: 'Business Intelligence',   color: 'var(--gold)'    },
-  data:     { label: 'Data Engineering',        color: 'var(--cyan)'    },
-  rpa:      { label: 'RPA & Automation',        color: 'var(--blue)'    },
-  software: { label: 'Software',                color: 'var(--blue)'    },
+  ai: { label: 'Artificial Intelligence', color: 'var(--purple)' },
+  bi: { label: 'Business Intelligence', color: 'var(--gold)' },
+  data: { label: 'Data Engineering', color: 'var(--cyan)' },
+  rpa: { label: 'RPA & Automation', color: 'var(--blue)' },
+  software: { label: 'Software', color: 'var(--blue)' },
 };
 
 /* ─── Framer variants ───────────────────────────────────────── */
 
 const headerVariants = {
   hidden: { opacity: 0, y: 40 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.93, y: 24 },
-  show:   { opacity: 1, scale: 1,    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-  exit:   { opacity: 0, scale: 0.93, y: 16,
-    transition: { duration: 0.3, ease: 'easeIn' } },
+  show: {
+    opacity: 1, scale: 1, y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as any }
+  },
+  exit: {
+    opacity: 0, scale: 0.93, y: 16,
+    transition: { duration: 0.3, ease: 'easeIn' as any }
+  },
 };
 
 /* ─── Component ────────────────────────────────────────────── */

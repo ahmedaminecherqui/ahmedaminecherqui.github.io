@@ -10,8 +10,8 @@ import { useScrollSpy } from '../../hooks/useScrollSpy';
 const sectionIds = navLinks.map((l) => l.anchor.replace('#', ''));
 
 export default function Navbar() {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [menuOpen,    setMenuOpen]    = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useScrollSpy(sectionIds);
 
   /* ── scroll detection ─────────────────────────────────────── */
@@ -38,18 +38,18 @@ export default function Navbar() {
   /* ── animation variants ───────────────────────────────────── */
   const navVariants = {
     hidden: { y: -80, opacity: 0 },
-    show:   { y: 0,   opacity: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+    show: { y: 0, opacity: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as any } },
   };
 
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: -12, scale: 0.98 },
-    show:   { opacity: 1, y: 0,   scale: 1,    transition: { duration: 0.28, ease: 'easeOut' } },
-    exit:   { opacity: 0, y: -8,  scale: 0.98, transition: { duration: 0.2,  ease: 'easeIn'  } },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.28, ease: 'easeOut' as any } },
+    exit: { opacity: 0, y: -8, scale: 0.98, transition: { duration: 0.2, ease: 'easeIn' as any } },
   };
 
   const linkItemVariants = {
     hidden: { opacity: 0, x: -14 },
-    show:   (i: number) => ({
+    show: (i: number) => ({
       opacity: 1,
       x: 0,
       transition: { delay: i * 0.045, duration: 0.22 },
@@ -135,8 +135,8 @@ export default function Navbar() {
                 <motion.span
                   key="close"
                   initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0,   opacity: 1 }}
-                  exit={{    rotate:  90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.18 }}
                   style={{ display: 'flex' }}
                 >
@@ -145,9 +145,9 @@ export default function Navbar() {
               ) : (
                 <motion.span
                   key="open"
-                  initial={{ rotate: 90,  opacity: 0 }}
-                  animate={{ rotate: 0,   opacity: 1 }}
-                  exit={{    rotate: -90, opacity: 0 }}
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.18 }}
                   style={{ display: 'flex' }}
                 >

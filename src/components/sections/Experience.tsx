@@ -4,33 +4,33 @@ import { TbCalendar, TbMapPin } from 'react-icons/tb';
 import { experience } from '../../data/experience';
 
 /* ─── Company logo imports ──────────────────────────────────── */
-import cihLogo      from '../../assets/images/logo_cih.png';
+import cihLogo from '../../assets/images/logo_cih.png';
 import devaktusLogo from '../../assets/images/DevAktus.png';
-import ucaLogo      from '../../assets/images/Cote_Azure.png';
+import ucaLogo from '../../assets/images/Cote_Azure.png';
 
 const companyLogo: Record<string, string> = {
-  cih:      cihLogo,
-  aurora:   ucaLogo,
+  cih: cihLogo,
+  aurora: ucaLogo,
   devaktus: devaktusLogo,
 };
 
 /* ─── Company accent colors ────────────────────────────────── */
 const companyColor: Record<string, string> = {
-  cih:      'var(--cyan)',
-  aurora:   'var(--gold)',
+  cih: 'var(--cyan)',
+  aurora: 'var(--gold)',
   devaktus: 'var(--purple)',
 };
 
 /* ─── Type badge config ─────────────────────────────────────── */
 const typeBadge = {
-  professional: { label: 'Professional',  color: 'var(--blue)'   },
-  internship:   { label: 'Internship',    color: 'var(--gold)'   },
+  professional: { label: 'Professional', color: 'var(--blue)' },
+  internship: { label: 'Internship', color: 'var(--gold)' },
 };
 
 /* ─── Framer Motion variants ───────────────────────────────── */
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 /* ─── Component ────────────────────────────────────────────── */
@@ -58,7 +58,7 @@ export default function Experience() {
       {/* ══════════ CARDS ══════════ */}
       <div className="experience__list">
         {experience.map((entry, i) => {
-          const badge  = typeBadge[entry.type];
+          const badge = typeBadge[entry.type];
           const accent = companyColor[entry.id] ?? 'var(--blue)';
 
           return (
@@ -122,9 +122,9 @@ export default function Experience() {
                   <span
                     className="experience__badge"
                     style={{
-                      color:       badge.color,
+                      color: badge.color,
                       borderColor: `${badge.color}40`,
-                      background:  `${badge.color}12`,
+                      background: `${badge.color}12`,
                     }}
                   >
                     {badge.label}

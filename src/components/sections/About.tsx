@@ -7,7 +7,7 @@ import type { VisionStatus } from '../../types';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
-  show:   {
+  show: {
     opacity: 1, y: 0,
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
@@ -22,7 +22,7 @@ const staggerContainer = (delay = 0) => ({
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show:   {
+  show: {
     opacity: 1, y: 0,
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
   },
@@ -30,7 +30,7 @@ const fadeUp = {
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -32 },
-  show:   {
+  show: {
     opacity: 1, x: 0,
     transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
   },
@@ -38,7 +38,7 @@ const fadeLeft = {
 
 const fadeRight = {
   hidden: { opacity: 0, x: 32 },
-  show:   {
+  show: {
     opacity: 1, x: 0,
     transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
   },
@@ -47,10 +47,10 @@ const fadeRight = {
 /* ─── Vision status helpers ────────────────────────────────── */
 
 const visionStatusConfig: Record<VisionStatus, { label: string; className: string }> = {
-  done:    { label: 'Completed', className: 'about__vision-node--done'    },
+  done: { label: 'Completed', className: 'about__vision-node--done' },
   current: { label: 'In Progress', className: 'about__vision-node--current' },
-  future:  { label: 'Upcoming',  className: 'about__vision-node--future'  },
-  goal:    { label: 'Goal',      className: 'about__vision-node--goal'    },
+  future: { label: 'Upcoming', className: 'about__vision-node--future' },
+  goal: { label: 'Goal', className: 'about__vision-node--goal' },
 };
 
 /* ─── Component ────────────────────────────────────────────── */
@@ -179,8 +179,8 @@ export default function About() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   duration: 0.55,
-                  delay:    i * 0.1,
-                  ease:     [0.22, 1, 0.36, 1],
+                  delay: i * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 <div className="about__vision-circle">
