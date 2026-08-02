@@ -1,9 +1,14 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TbExternalLink, TbAward, TbStar } from 'react-icons/tb';
+import { TbExternalLink, TbAward, TbStar, TbX, TbFileTypePdf, TbDownload, TbChevronLeft, TbChevronRight } from 'react-icons/tb';
 
 import { certifications } from '../../data/certifications';
-import type { CertCategory } from '../../types';
+import type { Certification, CertCategory } from '../../types';
+
+/* ─── PDF preview helpers ───────────────────────────────────── */
+
+const pdfUrl = (cert: Certification) => `/certificates/${cert.id}.pdf`;
+const thumbUrl = (cert: Certification) => `/certificates/thumbnails/${cert.id}.jpg`;
 
 /* ─── Filter config ─────────────────────────────────────────── */
 
@@ -53,13 +58,53 @@ const cardVariants = {
 
 /* ─── Component ────────────────────────────────────────────── */
 
+const PAGE_SIZE = 8;
+
 export default function Certifications() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [previewCert, setPreviewCert] = useState<Certification | null>(null);
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     const filterFn = FILTERS.find((f) => f.id === activeFilter)?.match ?? (() => true);
     return certifications.filter(filterFn);
   }, [activeFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+  // Reset to page 1 whenever the filter changes
+  useEffect(() => {
+    setPage(1);
+  }, [activeFilter]);
+
+  // Clamp page if it would end up out of range (e.g. filtered list shrinks)
+  useEffect(() => {
+    if (page > totalPages) setPage(totalPages);
+  }, [page, totalPages]);
+
+  const paged = useMemo(() => {
+    const start = (page - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [filtered, page]);
+
+  const goToPage = (n: number) => {
+    const clamped = Math.min(Math.max(1, n), totalPages);
+    setPage(clamped);
+    document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Close preview on Escape, lock scroll while open
+  useEffect(() => {
+    if (!previewCert) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setPreviewCert(null);
+    window.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [previewCert]);
 
   return (
     <section id="certifications" className="certifications" aria-label="Certifications and credentials">
@@ -110,7 +155,8 @@ export default function Certifications() {
 
       {/* ══════════ RESULTS COUNT ══════════ */}
       <p className="certs__results-label" aria-live="polite">
-        Showing <strong>{filtered.length}</strong> certification{filtered.length !== 1 ? 's' : ''}
+        Showing <strong>{filtered.length === 0 ? 0 : (page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)}</strong> of{' '}
+        <strong>{filtered.length}</strong> certification{filtered.length !== 1 ? 's' : ''}
       </p>
 
       {/* ══════════ GRID ══════════ */}
@@ -122,7 +168,7 @@ export default function Certifications() {
         animate="show"
       >
         <AnimatePresence mode="popLayout">
-          {filtered.map((cert) => {
+          {paged.map((cert) => {
             const color = catColor[cert.category];
             return (
               <motion.article
@@ -159,22 +205,170 @@ export default function Certifications() {
                   {/* Provider */}
                   <p className="cert-card__provider">{cert.provider}</p>
 
-                  {/* Verify link */}
-                  <a
-                    href={cert.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cert-card__verify"
-                    aria-label={`Verify certificate: ${cert.title}`}
-                  >
-                    Verify <TbExternalLink size={12} aria-hidden="true" />
-                  </a>
+                  {/* Actions */}
+                  <div className="cert-card__actions">
+                    {cert.hasPdfPreview && (
+                      <button
+                        type="button"
+                        className="cert-card__verify cert-card__preview-btn"
+                        onClick={() => setPreviewCert(cert)}
+                      >
+                        Preview <TbFileTypePdf size={12} aria-hidden="true" />
+                      </button>
+                    )}
+                    {cert.credentialUrl && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cert-card__verify"
+                        aria-label={`Verify certificate: ${cert.title}`}
+                      >
+                        Verify <TbExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
                 </div>
+
+                {/* Thumbnail preview */}
+                {cert.hasPdfPreview && (
+                  <button
+                    type="button"
+                    className="cert-card__thumb"
+                    onClick={() => setPreviewCert(cert)}
+                    aria-label={`Preview certificate: ${cert.title}`}
+                  >
+                    <img
+                      src={thumbUrl(cert)}
+                      alt=""
+                      loading="lazy"
+                      className="cert-card__thumb-img"
+                    />
+                    <span className="cert-card__thumb-overlay">
+                      <TbFileTypePdf size={18} /> Preview
+                    </span>
+                  </button>
+                )}
               </motion.article>
             );
           })}
         </AnimatePresence>
       </motion.div>
+
+      {/* ══════════ PAGINATION ══════════ */}
+      {totalPages > 1 && (
+        <nav className="certs__pager" aria-label="Certifications pagination">
+          <button
+            type="button"
+            className="certs__pager-btn"
+            onClick={() => goToPage(page - 1)}
+            disabled={page === 1}
+            aria-label="Previous page"
+          >
+            <TbChevronLeft size={16} />
+          </button>
+
+          <div className="certs__pager-pages">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                className={`certs__pager-page${n === page ? ' certs__pager-page--active' : ''}`}
+                onClick={() => goToPage(n)}
+                aria-current={n === page ? 'page' : undefined}
+                aria-label={`Go to page ${n}`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className="certs__pager-btn"
+            onClick={() => goToPage(page + 1)}
+            disabled={page === totalPages}
+            aria-label="Next page"
+          >
+            <TbChevronRight size={16} />
+          </button>
+        </nav>
+      )}
+
+      {/* ══════════ PDF PREVIEW MODAL ══════════ */}
+      <AnimatePresence>
+        {previewCert && (
+          <motion.div
+            className="cert-modal__backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            onClick={() => setPreviewCert(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Certificate preview: ${previewCert.title}`}
+          >
+            <motion.div
+              className="cert-modal"
+              initial={{ opacity: 0, y: 24, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.97 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="cert-modal__close"
+                onClick={() => setPreviewCert(null)}
+                aria-label="Close preview"
+              >
+                <TbX size={18} />
+              </button>
+
+              <img
+                src={thumbUrl(previewCert)}
+                alt={`${previewCert.title} certificate preview`}
+                className="cert-modal__img"
+              />
+
+              <div className="cert-modal__footer">
+                <div className="cert-modal__info">
+                  <h3>{previewCert.title}</h3>
+                  <p>{previewCert.provider}</p>
+                </div>
+                <div className="cert-modal__actions">
+                  <a
+                    href={pdfUrl(previewCert)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cert-modal__btn cert-modal__btn--primary"
+                  >
+                    Open PDF <TbFileTypePdf size={14} />
+                  </a>
+                  <a
+                    href={pdfUrl(previewCert)}
+                    download
+                    className="cert-modal__btn"
+                  >
+                    Download <TbDownload size={14} />
+                  </a>
+                  {previewCert.credentialUrl && (
+                    <a
+                      href={previewCert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-modal__btn"
+                    >
+                      Verify <TbExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </section>
   );

@@ -169,9 +169,12 @@ export interface Certification {
   title: string;
   provider: string;
   category: CertCategory;
-  credentialUrl: string;
+  credentialUrl?: string;
   date?: string;
   featured?: boolean;
+  /** Set when a downloaded certificate PDF + thumbnail exist at
+   *  /certificates/{id}.pdf and /certificates/thumbnails/{id}.jpg */
+  hasPdfPreview?: boolean;
 }
 
 /* ─── ABOUT ───────────────────────────────────────────────────── */

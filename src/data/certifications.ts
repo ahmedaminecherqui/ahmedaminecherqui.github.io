@@ -17,6 +17,7 @@ export const certifications: Certification[] = [
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/22SMSTMOE3VS',
     featured: true,
+    hasPdfPreview: true,
   },
   {
     id: 'data-modeling-powerbi',
@@ -25,6 +26,7 @@ export const certifications: Certification[] = [
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/B5QKX1YZV66B',
     featured: true,
+    hasPdfPreview: true,
   },
   {
     id: 'power-data-powerbi',
@@ -32,6 +34,8 @@ export const certifications: Certification[] = [
     provider: 'Microsoft / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/R2FRQ8ZVQVW2',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'powerbi-report',
@@ -39,6 +43,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/54TSSVDQU7X6',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'powerbi-dashboard',
@@ -46,6 +52,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/CENRLOAZTQP5',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'powerbi-transform',
@@ -53,6 +61,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/C7IM4KRHP1CZ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'powerbi-sales',
@@ -60,6 +70,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/ZBFX4H9SY899',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'data-modeling-pbi',
@@ -67,6 +79,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/JA4OTHEUVOHW',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'bi-foundations',
@@ -74,6 +88,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/2LO053HWWHQZ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'google-data-studio',
@@ -81,6 +97,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/399EWWRM08DB',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'billing-data-studio',
@@ -88,6 +106,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/XEY1JLZYXUFB',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'tableau-dashboards',
@@ -95,6 +115,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/0MLZN0C3W1EE',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'tableau-basics',
@@ -102,6 +124,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/IPMZ9Q9YQQDY',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'tableau-advanced',
@@ -109,6 +133,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/L8WZUW29ZDL3',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'tableau-customer',
@@ -116,6 +142,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/SGVOIY1ILJ52',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'excel-prep',
@@ -123,6 +151,8 @@ export const certifications: Certification[] = [
     provider: 'Microsoft / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/GEVFWBWUOUHH',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'excel-charts',
@@ -130,6 +160,8 @@ export const certifications: Certification[] = [
     provider: 'Microsoft / Coursera',
     category: 'bi',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/C55FEDOY8UKS',
+    hasPdfPreview: true,
+    featured: true,
   },
 
   /* ══════════════════════════════════════
@@ -142,6 +174,7 @@ export const certifications: Certification[] = [
     category: 'ai',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/K6U5SQPGD9V6',
     featured: true,
+    hasPdfPreview: true,
   },
   {
     id: 'genai-openai',
@@ -150,6 +183,7 @@ export const certifications: Certification[] = [
     category: 'ai',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/OZL2W42JZWO0',
     featured: true,
+    hasPdfPreview: true,
   },
   {
     id: 'genai-intro',
@@ -157,6 +191,8 @@ export const certifications: Certification[] = [
     provider: 'IBM / Coursera',
     category: 'ai',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/M33GWGNSEKEB',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'data-science-intro',
@@ -164,6 +200,8 @@ export const certifications: Certification[] = [
     provider: 'IBM / Coursera',
     category: 'ai',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/IK3NJF0BT3T4',
+    hasPdfPreview: true,
+    featured: true,
   },
 
   /* ══════════════════════════════════════
@@ -175,6 +213,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/82OEUI72A6RD',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'web-scraping',
@@ -182,6 +222,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/KUAFQTANHBHT',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'prepare-data',
@@ -189,6 +231,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/RAYY6RR6V69K',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'data-everywhere',
@@ -196,6 +240,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/MAT8SU3FPRBQ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'data-decisions',
@@ -203,6 +249,8 @@ export const certifications: Certification[] = [
     provider: 'Google / Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/WV92YU3T6AYQ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'python-basics',
@@ -210,6 +258,8 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/N5YLTH8P5J7D',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'prog-everybody',
@@ -217,6 +267,7 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/AWHPTL3ZXJZK',
+    hasPdfPreview: true,
     featured: true,
   },
   {
@@ -225,6 +276,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/F62NC759D82V',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'probability',
@@ -232,6 +285,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'data-science',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/5NS2977U5JW5',
+    hasPdfPreview: true,
+    featured: true,
   },
 
   /* ══════════════════════════════════════
@@ -243,6 +298,8 @@ export const certifications: Certification[] = [
     provider: 'Meta / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/MEZS7RJ5VCKG',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'javascript',
@@ -250,6 +307,8 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/AYKWC9MCJXBL',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'responsive-design',
@@ -257,6 +316,8 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/KUZVTCY9HF66',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'html5',
@@ -264,6 +325,8 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/AGAT65368L72',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'css3',
@@ -271,6 +334,8 @@ export const certifications: Certification[] = [
     provider: 'University of Michigan / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/9C5L2VKGBZMJ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'html-css-js',
@@ -278,6 +343,8 @@ export const certifications: Certification[] = [
     provider: 'Johns Hopkins / Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/5W4M8CSGKKHD',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'software-eng',
@@ -285,6 +352,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/LAC987FDBXQ4',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'cpp-oop',
@@ -292,6 +361,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/XYDJJVN992RT',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'arduino',
@@ -299,6 +370,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'web-dev',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/TYRUXR9SWVV8',
+    hasPdfPreview: true,
+    featured: true,
   },
 
   /* ══════════════════════════════════════
@@ -311,6 +384,7 @@ export const certifications: Certification[] = [
     category: 'infrastructure',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/V20QC1Z1515Q',
     featured: true,
+    hasPdfPreview: true,
   },
   {
     id: 'azure-networks',
@@ -318,6 +392,8 @@ export const certifications: Certification[] = [
     provider: 'Microsoft / Coursera',
     category: 'infrastructure',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/1QSHYSLR17YS',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'unix',
@@ -325,6 +401,8 @@ export const certifications: Certification[] = [
     provider: 'Johns Hopkins / Coursera',
     category: 'infrastructure',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/6TSWRP9PGFGX',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'computers-os',
@@ -332,6 +410,17 @@ export const certifications: Certification[] = [
     provider: 'Microsoft / Coursera',
     category: 'infrastructure',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/QVP824NRSS6E',
+    hasPdfPreview: true,
+    featured: true,
+  },
+  {
+    id: 'oracle-apex',
+    title: 'Oracle APEX Cloud Developer Certified Professional',
+    provider: 'Oracle',
+    category: 'infrastructure',
+    date: 'September 2025',
+    featured: true,
+    hasPdfPreview: true,
   },
 
   /* ══════════════════════════════════════
@@ -343,6 +432,8 @@ export const certifications: Certification[] = [
     provider: 'IBM / Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/specialization/certificate/6A954ETSMK9Y',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'job-interview',
@@ -350,6 +441,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/YKXSSTBTOKGZ',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'recherche-doc',
@@ -357,6 +450,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/R4ENYYG255U8',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'villes-africaines',
@@ -364,6 +459,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/JCQQ9LQ5Q2RX',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'sdgs',
@@ -371,6 +468,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/JY82E2SWKMDF',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'accounting',
@@ -378,6 +477,8 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/5HH7JPNXQ1KD',
+    hasPdfPreview: true,
+    featured: true,
   },
   {
     id: 'finance',
@@ -385,5 +486,7 @@ export const certifications: Certification[] = [
     provider: 'Coursera',
     category: 'soft-skills',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/certificate/JL9UF7UCJRJE',
+    hasPdfPreview: true,
+    featured: true,
   },
 ];
